@@ -1,16 +1,20 @@
-import logo from './logo.svg';
-import styles from './app.module.scss';
-import { ReactComponent as BusinessDeal } from '../../images/business_deal.svg';
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Home from '../Home';
+import Contact from '../Contact';
+import Listing from '../Listing';
+import NotFound from '../NotFound';
 
 function App() {
   return (
-    <div>
-      <header className={styles.header}>
-        <img alt="logo" className={styles.logo} src={logo} width="50px" />
-        <h1 className={styles.app_name}>Bisda</h1>
-      </header>
-      <BusinessDeal />
-    </div>
+    <Router>
+      <Switch>
+        <Route component={Home} exact path="/" />
+        <Route component={Contact} exact path="/contact" />
+        <Route component={Listing} exact path="/listings" />
+        <Route component={NotFound} />
+      </Switch>
+    </Router>
   );
 }
 

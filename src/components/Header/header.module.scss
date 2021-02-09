@@ -1,0 +1,24 @@
+@import '../../styles/shared.scss';
+
+.header {
+  @include flex;
+
+  &_wrapper {
+    @include flex;
+    color: var(--color_gray);
+    font-weight: 500;
+    justify-content: space-between;
+    margin: to-rem(50);
+  }
+}
+
+.app_name {
+  font-size: to-rem(25);
+  font-weight: 500;
+  text-align: center;
+}
+
+.active {
+  border-bottom: 2px solid var(--color_primary);
+  color: darken($color: #0066b8, $amount: 5%);
+}

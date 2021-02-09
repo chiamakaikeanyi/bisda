@@ -1,0 +1,15 @@
+@import '../../styles/shared.scss';
+
+.button {
+  background-color: var(--color_primary);
+  border: 0;
+  border-radius: to-rem(5);
+  color: var(--color_white);
+  cursor: pointer;
+  padding: to-rem(10);
+  width: to-rem(200);
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
