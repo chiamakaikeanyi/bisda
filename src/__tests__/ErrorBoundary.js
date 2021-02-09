@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
-import ErrorBoundary from '../components/ErrorBoundary';
+import ErrorBoundary from '../pages/ErrorBoundary';
 
-describe('ErrorBoundary Component', () => {
+describe('ErrorBoundary', () => {
   const props = {
     children: <p>Bisda</p>
   };

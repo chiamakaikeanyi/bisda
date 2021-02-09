@@ -1,6 +1,6 @@
 # Bisda
 
-An easy way to find GitHub repositories.
+An easy way to find businesses.
 
 <a href="https://github.com/chiamakaikeanyi/bisda/blob/main/LICENSE">
   <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="Bisda is released under the MIT license." />

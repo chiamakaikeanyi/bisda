@@ -1,8 +1,8 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import Layout from '../components/Layout';
+import Layout from '../pages/Layout';
 
-describe('Layout Component', () => {
+describe('Layout', () => {
   const props = {
     children: <p>Bisda</p>
   };

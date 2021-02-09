@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
-import ErrorBoundary from './components/ErrorBoundary';
+import App from './pages/App';
+import ErrorBoundary from './pages/ErrorBoundary';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
