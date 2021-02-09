@@ -1,0 +1,10 @@
+@import '../../styles/shared.scss';
+
+.layout_wrapper {
+  margin: to-rem(16);
+  min-height: 90vh;
+  // Fallback for browsers that don't support vh e.g Opera Mini
+  @supports not (min-height: 1vh) {
+    min-height: 90%;
+  }
+}
