@@ -1,0 +1,8 @@
+@mixin flex {
+  display: flex;
+  align-items: center;
+
+  @supports not (display: flex) {
+    display: block;
+  }
+}

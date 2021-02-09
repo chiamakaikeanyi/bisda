@@ -1,0 +1,16 @@
+@import '../../styles/shared.scss';
+
+.nav {
+  &_wrapper {
+    @include flex;
+    justify-content: space-evenly;
+  }
+
+  &_item {
+    margin-left: to-rem(50);
+
+    :hover {
+      color: darken($color: #0066b8, $amount: 5%);
+    }
+  }
+}

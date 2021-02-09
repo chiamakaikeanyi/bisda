@@ -3,7 +3,7 @@
         "stylelint-order"
     ],
     "rules": {
-        "indentation": 4,
+        "indentation": 2,
         "order/order": [
             "custom-properties",
             "declarations"

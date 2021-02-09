@@ -1,0 +1,54 @@
+@import '../../styles/shared.scss';
+
+.home_wrapper {
+  @include flex;
+  justify-content: space-between;
+}
+
+.info {
+  &_explore::after {
+    background-color: var(--color_grayVarFour);
+    color: var(--color_grayVarFour);
+    content: '';
+    display: inline-block;
+    font-weight: 600;
+    height: to-rem(1);
+    margin-left: to-rem(10);
+    vertical-align: middle;
+    width: to-rem(170);
+  }
+
+  &_heading {
+    color: var(--color_gray);
+    font-size: to-rem(35);
+    font-weight: 400;
+    margin-top: to-rem(32);
+    max-width: 80%;
+  }
+
+  &_description {
+    color: var(--color_grayVarTwo);
+    font-size: to-rem(16);
+    font-weight: 400;
+    margin: to-rem(10 0 32);
+  }
+}
+
+.business_image {
+  width: 50%;
+}
+
+.cta {
+  background-color: var(--color_primary);
+  border: to-rem(1) solid var(--color_primary);
+  border-radius: to-rem(5);
+  color: var(--color_white);
+  display: inline-block;
+  padding: to-rem(10);
+  text-align: center;
+  width: to-rem(200);
+
+  &:hover {
+    opacity: 0.9;
+  }
+}

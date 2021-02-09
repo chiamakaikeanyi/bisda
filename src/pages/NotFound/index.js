@@ -1,17 +1,17 @@
 import React from 'react';
-import Layout from '../Layout';
+import DefaultLayout from '../DefaultLayout';
 import styles from './notFound.module.scss';
+import Button from '../../components/Button';
 
 const NotFound = () => {
   return (
-    <Layout>
+    <DefaultLayout>
       <section className={styles.not_found_wrapper}>
-        <div>
-          <h1>No business listing found</h1>
-          <p>Please try another business name </p>
-        </div>
+        <h1>Page not found</h1>
+        <p>Please check the route or</p>
+        <Button label="Go Home" />
       </section>
-    </Layout>
+    </DefaultLayout>
   );
 };
 

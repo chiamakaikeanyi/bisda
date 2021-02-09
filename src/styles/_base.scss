@@ -1,14 +1,10 @@
 :root {
   --color_white: #fff;
-  --color_gray_1: #dfe1e5;
-  --color_gray_2: #eaecef;
-  --color_gray_3: #586069;
-  --color_gray_4: #24292e;
-  --color_gray_5: #0366d680;
-  --color_gray_6: #fafbfc;
-  --color_blue_1: #0366d6;
-  --color_blue_2: #01579b;
-  --color_blue_3: #0366d6b0;
+  --color_primary: #0066b8;
+  --color_gray: #313030;
+  --color_grayVarTwo: #6b6666;
+  --color_grayVarThree: #272626;
+  --color_grayVarFour: #1a2446;
 }
 
 * {
@@ -84,12 +80,8 @@ ul {
 }
 
 a {
-  color: var(--color_blue_1);
+  color: var(--color_grayVarThree);
   text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
 }
 
 :focus:not(:focus-visible) {
