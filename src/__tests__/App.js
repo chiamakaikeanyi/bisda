@@ -1,7 +1,7 @@
 import { render, screen, cleanup } from '@testing-library/react';
-import App from '../components/App';
+import App from '../pages/App';
 
-describe('App Component', () => {
+describe('App', () => {
   afterEach(cleanup);
 
   test('render the app correctly', () => {
