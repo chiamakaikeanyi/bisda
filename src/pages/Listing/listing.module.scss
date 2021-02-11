@@ -1,0 +1,129 @@
+@import '../../styles/shared.scss';
+
+.cta_wrapper {
+  @include flex;
+  justify-content: space-between;
+}
+
+.page_title {
+  font-size: to-rem(24);
+  margin: to-rem(30) 0;
+}
+
+.search {
+  width: 50%;
+}
+
+.count {
+  margin-top: to-rem(30);
+}
+
+.empty_state {
+  text-align: center;
+
+  &_wrapper {
+    @include flex;
+    justify-content: center;
+    margin-top: to-rem(30);
+  }
+
+  & > h2 {
+    font-size: to-rem(20);
+    margin-top: to-rem(15);
+  }
+}
+
+.list {
+  &_wrapper {
+    display: grid;
+    gap: to-rem(15);
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &_item {
+    @include flex;
+    background-color: var(--color_white);
+    border: to-rem(1) solid var(--color_grayVarFive);
+    border-radius: to-rem(5);
+    -webkit-box-shadow: 0 0 to-rem(1) var(--color_grayVarFive);
+    box-shadow: 0 0 to-rem(1) var(--color_grayVarFive);
+    list-style: none;
+    margin-top: to-rem(30);
+    padding: to-rem(15);
+
+    &:hover {
+      border: to-rem(1) solid var(--color_azure);
+    }
+  }
+}
+
+.business {
+  &_logo {
+    background-image: url('http://localhost:3000/static/media/logo.4d825ac9.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: to-rem(5);
+  }
+
+  &_details {
+    margin-left: to-rem(15);
+  }
+
+  &_name {
+    @include flex;
+    font-weight: 600;
+    justify-content: space-between;
+  }
+
+  &_description {
+    -webkit-box-orient: vertical;
+    color: var(--color_grayVarTwo);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    margin: to-rem(10) 0;
+    overflow: hidden;
+  }
+
+  &_contact {
+    &_wrapper {
+      @include flex;
+      font-size: to-rem(14);
+      justify-content: space-between;
+    }
+
+    @include flex;
+    margin: to-rem(10) 0;
+  }
+
+  &_category {
+    background-color: var(--color_azure);
+    border-radius: to-rem(3);
+    color: var(--color_primary);
+    display: inline-block;
+    font-size: to-rem(12);
+    font-weight: 500;
+    margin: to-rem(5);
+    min-width: to-rem(80);
+    opacity: 0.8;
+    padding: to-rem(5 8);
+    text-align: center;
+  }
+}
+
+.contact_wrapper {
+  color: var(--color_gray);
+  margin-left: to-rem(8);
+
+  & > :first-child {
+    font-size: to-rem(12);
+  }
+  & > :nth-child(2) {
+    font-weight: 500;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .list_wrapper {
+    width: 100%;
+  }
+}

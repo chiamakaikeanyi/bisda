@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import DefaultLayout from '../pages/DefaultLayout';
+import DefaultLayout from '../components/DefaultLayout';
 
 describe('DefaultLayout', () => {
   const props = {
