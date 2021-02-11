@@ -1,8 +1,8 @@
 import React from 'react';
-import DefaultLayout from '../DefaultLayout';
+import { Link } from 'react-router-dom';
+import DefaultLayout from '../../components/DefaultLayout';
 import { ReactComponent as BusinessDeal } from '../../images/business_deal.svg';
 import styles from './home.module.scss';
-import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
@@ -13,7 +13,7 @@ const Home = () => {
             <p className={styles.info_explore}>Explore</p>
             <h1 className={styles.info_heading}>A global listing of business directory </h1>
             <h2 className={styles.info_description}>Give your business a face-lift, get listed</h2>
-            <Link to="/listings" className={styles.cta}>
+            <Link className={styles.cta} to="/listings">
               View listings
             </Link>
           </div>
