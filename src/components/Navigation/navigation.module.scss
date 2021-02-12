@@ -14,3 +14,17 @@
     }
   }
 }
+
+.sign_out {
+  background: transparent;
+  border: to-rem(1) solid var(--color_primary);
+  border-radius: to-rem(15);
+  color: var(--color_primary);
+  cursor: pointer;
+  margin-left: to-rem(50);
+  padding: to-rem(5 15);
+
+  &:hover {
+    box-shadow: to-rem(0 2 8 3) var(--color_grayVarFive);
+  }
+}

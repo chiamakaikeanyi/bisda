@@ -6,6 +6,6 @@ describe('App', () => {
 
   test('render the app correctly', () => {
     render(<App />);
-    expect(screen.getByText(/Bisda/i)).toBeInTheDocument();
+    expect(screen.queryAllByText(/Bisda/i)).toBeTruthy();
   });
 });

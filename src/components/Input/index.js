@@ -5,10 +5,10 @@ import { composeClasses } from '../../utils';
 
 const Input = ({ id, label, placeholder, onChange, type, className }) => (
   <div className={composeClasses(styles.input_wrapper, className)}>
-    <label htmlFor={id} className={styles.visually_hidden}>
+    <label className={styles.visually_hidden} htmlFor={id}>
       {label}
     </label>
-    <input className={styles.input} onChange={onChange} placeholder={placeholder} type={type} id={id} />
+    <input className={styles.input} id={id} onChange={onChange} placeholder={placeholder} type={type} />
   </div>
 );
 
