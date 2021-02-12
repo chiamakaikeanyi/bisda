@@ -1,0 +1,49 @@
+@import '../../styles/shared.scss';
+
+.signin {
+  &_wrapper {
+    background: var(--color_white);
+    border: to-rem(1) solid var(--color_grayVar8);
+    box-shadow: to-rem(2 2 3 0) var(--color_grayVar8);
+    margin: auto;
+    max-width: to-rem(620);
+    min-height: 60vh;
+    padding: to-rem(40 60);
+    text-align: center;
+    // Fallback for browsers that don't support vh e.g Opera Mini
+    @supports not (min-height: 1vh) {
+      min-height: 50%;
+    }
+  }
+
+  &_title {
+    font-size: to-rem(35);
+    font-weight: 300;
+  }
+
+  &_error {
+    color: var(--color_red);
+    font-size: to-rem(13);
+    text-align: left;
+  }
+}
+
+.input_wrapper {
+  border: 0;
+  padding: to-rem(30) 0;
+}
+
+.button {
+  background-color: var(--color_primary);
+  border: 0;
+  border-radius: to-rem(5);
+  box-shadow: to-rem(0 2 8 3) var(--color_grayVarFive);
+  color: var(--color_white);
+  cursor: pointer;
+  padding: to-rem(15);
+  width: to-rem(200);
+
+  &:hover {
+    opacity: 0.9;
+  }
+}

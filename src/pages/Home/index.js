@@ -12,7 +12,7 @@ const Home = () => {
           <div className={styles.info}>
             <p className={styles.info_explore}>Explore</p>
             <h1 className={styles.info_heading}>A global listing of business directory </h1>
-            <h2 className={styles.info_description}>Give your business a face-lift, get listed</h2>
+            <h2 className={styles.info_description}>Search through businesses with Bisda</h2>
             <Link className={styles.cta} to="/listings">
               View listings
             </Link>

@@ -43,23 +43,18 @@
   &_item {
     @include flex;
     background-color: var(--color_white);
-    border: to-rem(1) solid var(--color_grayVarFive);
     border-radius: to-rem(5);
     -webkit-box-shadow: 0 0 to-rem(1) var(--color_grayVarFive);
-    box-shadow: 0 0 to-rem(1) var(--color_grayVarFive);
+    box-shadow: to-rem(10 10 40) var(--color_grayVar9);
     list-style: none;
     margin-top: to-rem(30);
     padding: to-rem(15);
-
-    &:hover {
-      border: to-rem(1) solid var(--color_azure);
-    }
   }
 }
 
 .business {
   &_logo {
-    background-image: url('http://localhost:3000/static/media/logo.4d825ac9.svg');
+    background-image: url('../../images/logo.svg');
     background-repeat: no-repeat;
     background-size: contain;
     border-radius: to-rem(5);
@@ -79,8 +74,9 @@
     -webkit-box-orient: vertical;
     color: var(--color_grayVarTwo);
     display: -webkit-box;
+    font-size: to-rem(13);
     -webkit-line-clamp: 2;
-    margin: to-rem(10) 0;
+    margin-top: to-rem(10);
     overflow: hidden;
   }
 
@@ -111,15 +107,9 @@
 }
 
 .contact_wrapper {
-  color: var(--color_gray);
   margin-left: to-rem(8);
-
-  & > :first-child {
-    font-size: to-rem(12);
-  }
-  & > :nth-child(2) {
-    font-weight: 500;
-  }
+  color: var(--color_grayVarTwo);
+  font-size: to-rem(12);
 }
 
 @media screen and (max-width: 600px) {

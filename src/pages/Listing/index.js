@@ -59,7 +59,7 @@ const Listing = () => {
         <section>
           <ul className={styles.list_wrapper}>
             {filteredList.map(listing => (
-              <li className={styles.list_item}>
+              <li className={styles.list_item} key={listing.id}>
                 <img
                   alt={`${listing.name} office`}
                   className={styles.business_logo}
@@ -71,8 +71,10 @@ const Listing = () => {
                   <h2 className={styles.business_name}>
                     {listing.name}
                     <div>
-                      {listing.categories.map(category => (
-                        <span className={styles.business_category}>{category}</span>
+                      {listing.categories.map((category, index) => (
+                        <span className={styles.business_category} key={index}>
+                          {category}
+                        </span>
                       ))}
                     </div>
                   </h2>
