@@ -9,14 +9,9 @@ import { ReactComponent as GlobeIcon } from '../../images/globe.svg';
 import emptyIcon from '../../images/empty.png';
 
 const Listing = () => {
-  const [listings, setListings] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
 
-  const currentListings = localStorage.getItem('listings') !== null && JSON.parse(localStorage.getItem('listings'));
-
-  useEffect(() => {
-    setListings(currentListings);
-  }, [currentListings]);
+  const listings = localStorage.getItem('listings') !== null && JSON.parse(localStorage.getItem('listings'));
 
   function handleSearch({ target }) {
     setSearchTerm(target.value);
@@ -35,17 +30,19 @@ const Listing = () => {
 
   return (
     <DefaultLayout>
-      <div className={styles.cta_wrapper}>
-        <h1 className={styles.page_title}>Listings</h1>
-        <Search
-          className={styles.search}
-          onChange={handleSearch}
-          onClear={clearSearch}
-          pattern="[a-zA-Z0-9 ]+"
-          placeholder="Search by business name"
-          searchTerm={searchTerm}
-        />
-      </div>
+      {filteredList.length > 0 && (
+        <div className={styles.cta_wrapper}>
+          <h1 className={styles.page_title}>Listings</h1>
+          <Search
+            className={styles.search}
+            onChange={handleSearch}
+            onClear={clearSearch}
+            pattern="[a-zA-Z0-9 ]+"
+            placeholder="Search by business name"
+            searchTerm={searchTerm}
+          />
+        </div>
+      )}
 
       {filteredList.length > 0 && (
         <p className={styles.count}>
@@ -58,7 +55,7 @@ const Listing = () => {
           <div className={styles.empty_state}>
             <img alt="Empty state" src={emptyIcon} width="200px" />
             <h2>No business listed at the moment</h2>
-            <p>When businesses are added, we'll show them here</p>
+            <p>When businesses are added, you'll see them here</p>
           </div>
         </section>
       ) : (
@@ -74,17 +71,17 @@ const Listing = () => {
                   width="160px"
                 />
                 <div className={styles.business_details}>
-                  <h2 className={styles.business_name}>
-                    {listing.name}
+                  <div className={styles.business_name_wrapper}>
+                    <h2 className={styles.business_name}>{listing.name}</h2>
                     <div>
                       {listing.categories &&
-                        listing.categories.map((category, index) => (
-                          <span className={styles.business_category} key={index}>
-                            {category}
+                        listing.categories.map(category => (
+                          <span className={styles.business_category} key={category.id}>
+                            {category.name}
                           </span>
                         ))}
                     </div>
-                  </h2>
+                  </div>
                   <p className={styles.business_description}>{listing.description}</p>
                   <div className={styles.business_contact_wrapper}>
                     <div className={styles.business_contact}>
