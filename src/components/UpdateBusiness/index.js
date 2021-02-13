@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import ReactSelect from 'react-select';
 import { useToasts } from 'react-toast-notifications';
@@ -6,9 +6,13 @@ import Button from '../Button';
 import Input from '../Input';
 import styles from '../AddCategory/add_category.module.scss';
 
-const AddBusiness = ({ addBusiness, modalOpen, setModalOpen }) => {
+const UpdateBusiness = ({ list, modalOpen, setModalOpen }) => {
   const [state, setState] = useState({});
   const { addToast } = useToasts();
+
+  useEffect(() => {
+    setState(list);
+  }, [list]);
 
   const currentCategory = localStorage.getItem('category') !== null ? JSON.parse(localStorage.getItem('category')) : [];
   const uniqueCategory = currentCategory ? [...new Set(currentCategory)] : [];
@@ -16,7 +20,6 @@ const AddBusiness = ({ addBusiness, modalOpen, setModalOpen }) => {
   function handleChange({ target }) {
     setState({
       ...state,
-      id: Date.now(),
       [target.name]: target.value
     });
   }
@@ -25,15 +28,26 @@ const AddBusiness = ({ addBusiness, modalOpen, setModalOpen }) => {
     setState({ ...state, categories: value.map(option => option) });
   }
 
+  function updateBusiness(business) {
+    const currentBusinesses =
+      localStorage.getItem('listings') !== null ? JSON.parse(localStorage.getItem('listings')) : [];
+
+    const filteredBusinesses = currentBusinesses.filter(data => data.id !== business.id);
+
+    const updatedBusinesses = filteredBusinesses.concat(state);
+
+    localStorage.setItem('listings', JSON.stringify(updatedBusinesses));
+  }
+
   return (
-    modalOpen === 'add_business' && (
+    modalOpen === 'edit_business' && (
       <section className={styles.modal}>
         <div className={styles.modal_dialog}>
           <div className={styles.modal_content}>
             <div className={styles.modal_title_wrapper}>
-              <h1 className={styles.modal_title}>Add Business</h1>
+              <h1 className={styles.modal_title}>Update Business</h1>
               <Button
-                arial-label="Close add business modal"
+                arial-label="Close edit business modal"
                 className={styles.modal_close}
                 label="x"
                 onClick={() => setModalOpen('')}
@@ -135,12 +149,12 @@ const AddBusiness = ({ addBusiness, modalOpen, setModalOpen }) => {
               <Button className={styles.cancel_button} label="Cancel" onClick={() => setModalOpen('')} type="button" />
               <Button
                 className={styles.accept_button}
-                label="Add Business"
+                label="Update Business"
                 onClick={() => {
-                  addBusiness(state);
+                  updateBusiness(state);
                   setState({});
                   setModalOpen('');
-                  addToast('Business added successfully', {
+                  addToast('Business updated successfully', {
                     appearance: 'success',
                     autoDismiss: true,
                     placement: 'bottom-left'
@@ -171,10 +185,10 @@ const selectStyle = {
   })
 };
 
-AddBusiness.propTypes = {
-  addBusiness: PropTypes.func.isRequired,
+UpdateBusiness.propTypes = {
+  list: PropTypes.object,
   modalOpen: PropTypes.string.isRequired,
   setModalOpen: PropTypes.func.isRequired
 };
 
-export default AddBusiness;
+export default UpdateBusiness;

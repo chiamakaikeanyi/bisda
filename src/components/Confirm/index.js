@@ -50,7 +50,7 @@ const Confirm = ({ listID, modalOpen, setModalOpen }) => {
 };
 
 Confirm.propTypes = {
-  listID: PropTypes.number.isRequired,
+  listID: PropTypes.number,
   modalOpen: PropTypes.string.isRequired,
   setModalOpen: PropTypes.func.isRequired
 };
