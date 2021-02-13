@@ -1,1 +1,51 @@
 @import '../../styles/shared.scss';
+
+.empty_state {
+  text-align: center;
+
+  &_wrapper {
+    @include flex;
+    justify-content: center;
+    margin-top: to-rem(30);
+  }
+
+  & > h2 {
+    font-size: to-rem(20);
+    margin: to-rem(15);
+  }
+}
+
+.cta {
+  background-color: var(--color_primary);
+  border: 0;
+  border-radius: to-rem(20);
+  color: var(--color_white);
+  cursor: pointer;
+  font-size: to-rem(14);
+  margin-left: to-rem(10);
+  padding: to-rem(8 15);
+
+  &:hover {
+    background-color: darken($color: #0066b8, $amount: 10%);
+  }
+
+  &_wrapper {
+    @include flex;
+    justify-content: flex-end;
+  }
+}
+
+.button {
+  background-color: var(--color_primary);
+  border: 0;
+  border-radius: to-rem(5);
+  box-shadow: to-rem(0 2 8 3) var(--color_grayVarFive);
+  color: var(--color_white);
+  cursor: pointer;
+  padding: to-rem(15);
+  width: to-rem(200);
+
+  &:hover {
+    background-color: darken($color: #0066b8, $amount: 10%);
+  }
+}

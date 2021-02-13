@@ -44,7 +44,7 @@
     @include flex;
     background-color: var(--color_white);
     border-radius: to-rem(5);
-    -webkit-box-shadow: 0 0 to-rem(1) var(--color_grayVarFive);
+    -webkit-box-shadow: to-rem(10 10 40) var(--color_grayVar9);
     box-shadow: to-rem(10 10 40) var(--color_grayVar9);
     list-style: none;
     margin-top: to-rem(30);
@@ -107,9 +107,9 @@
 }
 
 .contact_wrapper {
-  margin-left: to-rem(8);
   color: var(--color_grayVarTwo);
   font-size: to-rem(12);
+  margin-left: to-rem(8);
 }
 
 @media screen and (max-width: 600px) {

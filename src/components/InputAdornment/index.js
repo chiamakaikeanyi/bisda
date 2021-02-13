@@ -5,7 +5,19 @@ import styles from './input_adornment.module.scss';
 import { ReactComponent as ViewIcon } from '../../images/view.svg';
 import { ReactComponent as HideIcon } from '../../images/hide.svg';
 
-const InputAdornment = ({ id, label, placeholder, onChange, toggle, onToggle, className }) => (
+const InputAdornment = ({
+  id,
+  label,
+  placeholder,
+  onChange,
+  toggle,
+  onToggle,
+  className,
+  maxLength,
+  minLength,
+  name,
+  pattern
+}) => (
   <div className={composeClasses(styles.input_wrapper, className)}>
     <label className={styles.visually_hidden} htmlFor={id}>
       {label}
@@ -13,7 +25,11 @@ const InputAdornment = ({ id, label, placeholder, onChange, toggle, onToggle, cl
     <input
       className={styles.input}
       id={id}
+      maxLength={maxLength}
+      minLength={minLength}
+      name={name}
       onChange={onChange}
+      pattern={pattern}
       placeholder={placeholder}
       type={toggle ? 'text' : 'password'}
     />
@@ -30,6 +46,11 @@ InputAdornment.propTypes = {
   placeholder: PropTypes.string,
   onChange: PropTypes.func,
   toggle: PropTypes.bool,
+  visuallyHidden: PropTypes.bool,
+  pattern: PropTypes.string,
+  maxLength: PropTypes.string,
+  minLength: PropTypes.string,
+  name: PropTypes.string,
   onToggle: PropTypes.func,
   className: PropTypes.string,
   id: PropTypes.string,
