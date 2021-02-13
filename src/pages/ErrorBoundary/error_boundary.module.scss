@@ -1,0 +1,14 @@
+.button {
+  background-color: var(--color_primary);
+  border: 0;
+  border-radius: to-rem(5);
+  box-shadow: to-rem(0 2 8 3) var(--color_grayVarFive);
+  color: var(--color_white);
+  cursor: pointer;
+  padding: to-rem(15);
+  width: to-rem(200);
+
+  &:hover {
+    background-color: darken($color: #0066b8, $amount: 10%);
+  }
+}
