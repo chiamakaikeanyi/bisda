@@ -2,20 +2,20 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../Button';
 import Input from '../Input';
-import styles from './add_category.module.scss';
+import styles from '../AddCategory/add_category.module.scss';
 
-const AddCategory = ({ addCategory, modalOpen, setModalOpen }) => {
+const AddBusiness = ({ addBusiness, modalOpen, setModalOpen }) => {
   const [state, setState] = useState('');
 
   return (
-    modalOpen === 'category' && (
+    modalOpen === 'business' && (
       <section className={styles.modal}>
         <div className={styles.modal_dialog}>
           <div className={styles.modal_content}>
             <div className={styles.modal_title_wrapper}>
-              <h1 className={styles.modal_title}>Add Category</h1>
+              <h1 className={styles.modal_title}>Add Business</h1>
               <Button
-                arial-label="Close add category modal"
+                arial-label="Close add business modal"
                 className={styles.modal_close}
                 label="x"
                 onClick={() => setModalOpen('')}
@@ -24,11 +24,11 @@ const AddCategory = ({ addCategory, modalOpen, setModalOpen }) => {
             </div>
             <div className={styles.modal_body}>
               <Input
-                id="category"
-                label="Category"
+                id="business"
+                label="Business Name"
                 onChange={e => setState(e.target.value)}
                 pattern="[a-zA-Z0-9 ]+"
-                placeholder="Category Name"
+                placeholder="Business Name"
                 type="text"
                 value={state}
                 visuallyHidden
@@ -38,9 +38,9 @@ const AddCategory = ({ addCategory, modalOpen, setModalOpen }) => {
               <Button className={styles.cancel_button} label="Cancel" onClick={() => setModalOpen('')} type="button" />
               <Button
                 className={styles.accept_button}
-                label="Add Category"
+                label="Add Business"
                 onClick={() => {
-                  addCategory(state);
+                  addBusiness(state);
                   setState('');
                 }}
                 type="submit"
@@ -53,10 +53,10 @@ const AddCategory = ({ addCategory, modalOpen, setModalOpen }) => {
   );
 };
 
-AddCategory.propTypes = {
-  addCategory: PropTypes.func.isRequired,
+AddBusiness.propTypes = {
+  addBusiness: PropTypes.func.isRequired,
   modalOpen: PropTypes.string.isRequired,
   setModalOpen: PropTypes.func.isRequired
 };
 
-export default AddCategory;
+export default AddBusiness;
