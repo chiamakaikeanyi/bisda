@@ -10,6 +10,7 @@ const Input = ({
   onChange,
   type,
   className,
+  inputClassName,
   visuallyHidden,
   pattern,
   maxLength,
@@ -18,11 +19,11 @@ const Input = ({
   ...rest
 }) => (
   <div className={composeClasses(styles.input_wrapper, className)}>
-    <label className={visuallyHidden ? styles.visually_hidden : ''} htmlFor={id}>
+    <label className={visuallyHidden ? styles.visually_hidden : styles.label} htmlFor={id}>
       {label}
     </label>
     <input
-      className={styles.input}
+      className={composeClasses(styles.input, inputClassName)}
       id={id}
       maxLength={maxLength}
       minLength={minLength}
@@ -43,7 +44,8 @@ Input.propTypes = {
   pattern: PropTypes.string,
   maxLength: PropTypes.string,
   minLength: PropTypes.string,
-  name: PropTypes.string
+  name: PropTypes.string,
+  inputClassName: PropTypes.string
 };
 
 export default Input;

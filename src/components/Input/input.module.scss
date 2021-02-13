@@ -12,10 +12,14 @@
   white-space: nowrap;
 }
 
+.label {
+  font-size: to-rem(14);
+}
+
 .input {
   border: to-rem(1) solid var(--color_grayVarFive);
   border-radius: to-rem(3);
-  color: var(color_grayVar10);
+  color: var(--color_grayVar10);
   font-size: to-rem(14);
   height: to-rem(50);
   margin-bottom: to-rem(30);

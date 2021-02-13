@@ -88,3 +88,8 @@
 .cancel_button {
   border-right: to-rem(1) solid var(--color_porcelain);
 }
+
+.modal_input {
+  height: to-rem(40);
+  margin-bottom: to-rem(8);
+}

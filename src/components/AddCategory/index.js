@@ -1,11 +1,20 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useToasts } from 'react-toast-notifications';
 import Button from '../Button';
 import Input from '../Input';
 import styles from './add_category.module.scss';
 
 const AddCategory = ({ addCategory, modalOpen, setModalOpen }) => {
-  const [state, setState] = useState('');
+  const [category, setCategory] = useState({});
+  const { addToast } = useToasts();
+
+  function handleChange({ target }) {
+    setCategory({
+      id: Date.now(),
+      name: target.value
+    });
+  }
 
   return (
     modalOpen === 'category' && (
@@ -24,13 +33,13 @@ const AddCategory = ({ addCategory, modalOpen, setModalOpen }) => {
             </div>
             <div className={styles.modal_body}>
               <Input
+                defaultValue={category.name}
                 id="category"
                 label="Category"
-                onChange={e => setState(e.target.value)}
+                onChange={handleChange}
                 pattern="[a-zA-Z0-9 ]+"
                 placeholder="Category Name"
                 type="text"
-                value={state}
                 visuallyHidden
               />
             </div>
@@ -40,8 +49,14 @@ const AddCategory = ({ addCategory, modalOpen, setModalOpen }) => {
                 className={styles.accept_button}
                 label="Add Category"
                 onClick={() => {
-                  addCategory(state);
-                  setState('');
+                  addCategory(category);
+                  setCategory({});
+                  setModalOpen('');
+                  addToast('Category added successfully', {
+                    appearance: 'success',
+                    autoDismiss: true,
+                    placement: 'bottom-left'
+                  });
                 }}
                 type="submit"
               />
