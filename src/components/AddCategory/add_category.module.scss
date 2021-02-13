@@ -54,6 +54,7 @@
   }
 
   &_body {
+    border-top: to-rem(1) solid var(--color_porcelain);
     color: var(--color_grayVar10);
     padding: to-rem(15);
     position: relative;
