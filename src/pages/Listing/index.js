@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Search from '../../components/Search';
 import DefaultLayout from '../../components/DefaultLayout';
 import styles from './listing.module.scss';
