@@ -89,7 +89,7 @@ function Admin() {
                           <td>{listing.website}</td>
                           <td className={styles.categories}>
                             {listing.categories.map(category => (
-                              <span>{category.name} </span>
+                              <span key={category.id}>{category.name}</span>
                             ))}
                           </td>
                           <td>
