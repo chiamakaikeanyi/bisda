@@ -11,9 +11,7 @@ import emptyIcon from '../../images/empty.png';
 const Listing = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
-  const listings = localStorage.getItem('listings') !== null && JSON.parse(localStorage.getItem('listings'));
-
-  const listingsClone = [...listings];
+  const currentListings = localStorage.getItem('listings') !== null && JSON.parse(localStorage.getItem('listings'));
 
   function handleSearch({ target }) {
     setSearchTerm(target.value);
@@ -23,8 +21,8 @@ const Listing = () => {
     setSearchTerm('');
   }
 
-  const filteredList = listingsClone
-    ? listingsClone.filter(
+  const filteredList = currentListings
+    ? currentListings.filter(
         listing =>
           listing.name.toLowerCase().includes(searchTerm.toLowerCase()) || listing.description.includes(searchTerm)
       )
