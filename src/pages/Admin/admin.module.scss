@@ -49,3 +49,71 @@
     background-color: darken($color: #0066b8, $amount: 10%);
   }
 }
+
+.page_title {
+  font-size: to-rem(24);
+  margin: to-rem(30) 0;
+
+  &_wrapper {
+    @include flex;
+    justify-content: space-between;
+  }
+}
+
+.table {
+  border-collapse: collapse;
+  position: relative;
+  width: 100%;
+}
+
+thead {
+  background-color: var(--color_porcelain);
+}
+
+tr {
+  border-bottom: to-rem(1) solid var(--color_porcelain);
+  height: to-rem(50);
+
+  &:hover {
+    background-color: var(--color_porcelain);
+  }
+}
+
+th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+td,
+th {
+  padding: to-rem(8);
+  text-align: left;
+}
+
+th:last-of-type,
+td:last-of-type {
+  text-align: center;
+}
+
+.business_logo {
+  border-radius: 100%;
+  height: to-rem(50);
+  width: to-rem(50);
+}
+
+.categories {
+  width: to-rem(50);
+}
+
+.icon {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  padding: to-rem(15);
+
+  &:hover {
+    background-color: var(--color_grayVar8);
+    border-radius: 50%;
+  }
+}
