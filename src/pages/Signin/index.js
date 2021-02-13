@@ -49,6 +49,7 @@ const Signin = props => {
           onChange={e => setUsername(e.target.value)}
           placeholder="Email Address"
           type="email"
+          visuallyHidden
         />
 
         <InputAdornment

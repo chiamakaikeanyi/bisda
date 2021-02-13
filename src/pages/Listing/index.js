@@ -12,9 +12,11 @@ const Listing = () => {
   const [listings, setListings] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
 
+  const currentListings = localStorage.getItem('listings') !== null && JSON.parse(localStorage.getItem('listings'));
+
   useEffect(() => {
-    setListings(constants.listings);
-  }, []);
+    setListings(currentListings);
+  }, [currentListings]);
 
   function handleSearch({ target }) {
     setSearchTerm(target.value);
@@ -24,9 +26,12 @@ const Listing = () => {
     setSearchTerm('');
   }
 
-  const filteredList = listings.filter(
-    listing => listing.name.toLowerCase().includes(searchTerm.toLowerCase()) || listing.description.includes(searchTerm)
-  );
+  const filteredList = listings
+    ? listings.filter(
+        listing =>
+          listing.name.toLowerCase().includes(searchTerm.toLowerCase()) || listing.description.includes(searchTerm)
+      )
+    : [];
 
   return (
     <DefaultLayout>
@@ -36,6 +41,7 @@ const Listing = () => {
           className={styles.search}
           onChange={handleSearch}
           onClear={clearSearch}
+          pattern="[a-zA-Z0-9 ]+"
           placeholder="Search by business name"
           searchTerm={searchTerm}
         />
@@ -52,7 +58,7 @@ const Listing = () => {
           <div className={styles.empty_state}>
             <img alt="Empty state" src={emptyIcon} width="200px" />
             <h2>No business listed at the moment</h2>
-            <p>When business are added, we'll show them here</p>
+            <p>When businesses are added, we'll show them here</p>
           </div>
         </section>
       ) : (
@@ -71,11 +77,12 @@ const Listing = () => {
                   <h2 className={styles.business_name}>
                     {listing.name}
                     <div>
-                      {listing.categories.map((category, index) => (
-                        <span className={styles.business_category} key={index}>
-                          {category}
-                        </span>
-                      ))}
+                      {listing.categories &&
+                        listing.categories.map((category, index) => (
+                          <span className={styles.business_category} key={index}>
+                            {category}
+                          </span>
+                        ))}
                     </div>
                   </h2>
                   <p className={styles.business_description}>{listing.description}</p>

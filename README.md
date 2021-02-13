@@ -62,6 +62,8 @@ yarn start
 
 The browser is expected to launch the app on the browser on http://localhost:3000.
 
+Use admin@email.com and @Password123 to access the admin portal.
+
 ## Contributing
 
 If you have never worked with the technologies used in this repository, here are links to some documentations that may help:

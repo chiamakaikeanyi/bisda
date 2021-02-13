@@ -5,9 +5,17 @@ import { ReactComponent as SearchIcon } from '../../images/search.svg';
 import { ReactComponent as CancelIcon } from '../../images/cancel.svg';
 import { composeClasses } from '../../utils';
 
-const Search = ({ placeholder, onChange, onClear, searchTerm, className }) => (
+const Search = ({ placeholder, onChange, onClear, searchTerm, className, maxLength, pattern }) => (
   <div className={composeClasses(styles.search_wrapper, className)}>
-    <input className={styles.search} onChange={onChange} placeholder={placeholder} type="search" value={searchTerm} />
+    <input
+      className={styles.search}
+      maxLength={maxLength}
+      onChange={onChange}
+      pattern={pattern}
+      placeholder={placeholder}
+      type="search"
+      value={searchTerm}
+    />
 
     {searchTerm ? (
       <CancelIcon aria-label="Close" className={styles.icon} data-testid="cancel_icon" onClick={onClear} />
@@ -22,7 +30,9 @@ Search.propTypes = {
   onChange: PropTypes.func,
   onClear: PropTypes.func,
   searchTerm: PropTypes.string,
-  className: PropTypes.string
+  className: PropTypes.string,
+  maxLength: PropTypes.string,
+  pattern: PropTypes.string
 };
 
 export default Search;

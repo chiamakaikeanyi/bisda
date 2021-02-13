@@ -49,6 +49,6 @@
   width: to-rem(200);
 
   &:hover {
-    opacity: 0.9;
+    background-color: darken($color: #0066b8, $amount: 10%);
   }
 }
