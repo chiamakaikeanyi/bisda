@@ -15,7 +15,7 @@ const Confirm = ({ listID, modalOpen, setModalOpen }) => {
     localStorage.setItem('listings', JSON.stringify(updatedBusinesses));
 
     setModalOpen('');
-    addToast('Listing deleted successfully', {
+    addToast('Business deleted successfully', {
       appearance: 'success',
       autoDismiss: true,
       placement: 'bottom-left'

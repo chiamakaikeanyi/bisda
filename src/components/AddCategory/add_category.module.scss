@@ -94,3 +94,24 @@
   height: to-rem(40);
   margin-bottom: to-rem(8);
 }
+
+.required {
+  color: var(--color_red);
+  display: inline-block;
+  font-size: to-rem(13);
+  margin-bottom: to-rem(15);
+}
+
+.add_category {
+  background: transparent;
+  border: 0;
+  color: var(--color_primary);
+  font-size: to-rem(13);
+  text-decoration: underline;
+  cursor: pointer;
+
+  &_wrapper {
+    text-align: right;
+    padding: to-rem(0 15 15);
+  }
+}

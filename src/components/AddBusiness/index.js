@@ -5,6 +5,7 @@ import { useToasts } from 'react-toast-notifications';
 import Button from '../Button';
 import Input from '../Input';
 import styles from '../AddCategory/add_category.module.scss';
+import { isObjectEmpty } from '../../utils';
 
 const AddBusiness = ({ addBusiness, modalOpen, setModalOpen }) => {
   const [state, setState] = useState({});
@@ -41,6 +42,7 @@ const AddBusiness = ({ addBusiness, modalOpen, setModalOpen }) => {
               />
             </div>
             <div className={styles.modal_body}>
+              <span className={styles.required}>All fields are required *</span>
               <Input
                 defaultValue={state.name}
                 id="name"
@@ -102,7 +104,6 @@ const AddBusiness = ({ addBusiness, modalOpen, setModalOpen }) => {
               />
 
               <ReactSelect
-                className={styles.modal_input}
                 data-testid="categories"
                 getOptionLabel={option => option.name}
                 getOptionValue={option => option.name}
@@ -131,10 +132,20 @@ const AddBusiness = ({ addBusiness, modalOpen, setModalOpen }) => {
               />
             </div>
 
+            <div className={styles.add_category_wrapper}>
+              <Button
+                className={styles.add_category}
+                label="Add Category"
+                onClick={() => setModalOpen('category')}
+                type="submit"
+              />
+            </div>
+
             <div className={styles.modal_footer}>
               <Button className={styles.cancel_button} label="Cancel" onClick={() => setModalOpen('')} type="button" />
               <Button
                 className={styles.accept_button}
+                isDisabled={isObjectEmpty(state) || Object.values(state).length < 7}
                 label="Add Business"
                 onClick={() => {
                   addBusiness(state);
@@ -161,13 +172,13 @@ const selectStyle = {
     ...styles,
     fontSize: '14px',
     overflow: 'initial',
-    margin: '10px 0',
-    height: '40px'
+    marginTop: '15px'
   }),
   control: base => ({
     ...base,
     boxShadow: 'none',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    height: '45px'
   })
 };
 
