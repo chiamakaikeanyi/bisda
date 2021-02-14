@@ -4,6 +4,7 @@ import { useToasts } from 'react-toast-notifications';
 import Button from '../Button';
 import Input from '../Input';
 import styles from './add_category.module.scss';
+import { isObjectEmpty } from '../../utils';
 
 const AddCategory = ({ addCategory, modalOpen, setModalOpen }) => {
   const [category, setCategory] = useState({});
@@ -39,6 +40,7 @@ const AddCategory = ({ addCategory, modalOpen, setModalOpen }) => {
                 onChange={handleChange}
                 pattern="[a-zA-Z0-9 ]+"
                 placeholder="Category Name"
+                required="required"
                 type="text"
                 visuallyHidden
               />
@@ -47,6 +49,7 @@ const AddCategory = ({ addCategory, modalOpen, setModalOpen }) => {
               <Button className={styles.cancel_button} label="Cancel" onClick={() => setModalOpen('')} type="button" />
               <Button
                 className={styles.accept_button}
+                isDisabled={isObjectEmpty(category)}
                 label="Add Category"
                 onClick={() => {
                   addCategory(category);

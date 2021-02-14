@@ -20,3 +20,9 @@ export const composeClasses = (...styles) => {
  * @returns {Boolean}
  */
 export const isNotEmptyArray = array => Array.isArray(array) && array.length > 0;
+
+/**
+ * @param {*} obj
+ * @returns {Boolean}
+ */
+export const isObjectEmpty = (obj = {}) => !obj || Object.keys(obj).length === 0;

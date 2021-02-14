@@ -62,11 +62,11 @@
 
   &_details {
     margin-left: to-rem(15);
+    width: 100%;
   }
 
   &_name {
     font-weight: 600;
-    width: to-rem(100);
 
     &_wrapper {
       @include flex;

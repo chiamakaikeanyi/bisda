@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './button.module.scss';
+import { composeClasses } from '../../utils';
 
-const Button = ({ className, label, onClick, icon }) => (
-  <button className={className} onClick={onClick} type="button">
+const Button = ({ className, label, onClick, icon, isDisabled }) => (
+  <button className={composeClasses(className, styles.button)} disabled={isDisabled} onClick={onClick} type="button">
     {label ? label : icon}
   </button>
 );

@@ -42,7 +42,7 @@ function Admin() {
           <Button className={styles.cta} label="Add Business" onClick={() => setModalOpen('add_business')} />
         </div>
         <section>
-          {currentListings && currentListings.length === 0 ? (
+          {!isNotEmptyArray(currentListings) ? (
             <div className={styles.empty_state_wrapper}>
               <div className={styles.empty_state}>
                 <img alt="Empty state" src={emptyIcon} width="200px" />
@@ -52,7 +52,7 @@ function Admin() {
             </div>
           ) : (
             <div>
-              {currentListings.length > 0 && (
+              {isNotEmptyArray(currentListings) && (
                 <>
                   <div className={styles.page_title_wrapper}>
                     <h1 className={styles.page_title}>Business Listing</h1>
