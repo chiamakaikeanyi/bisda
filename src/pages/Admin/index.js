@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { ToastProvider } from 'react-toast-notifications';
 import Button from '../../components/Button';
 import DefaultLayout from '../../components/DefaultLayout';
@@ -16,7 +16,14 @@ function Admin() {
   const [modalOpen, setModalOpen] = useState('');
   const [list, setList] = useState({});
 
-  const currentListings = localStorage.getItem('listings') !== null ? JSON.parse(localStorage.getItem('listings')) : [];
+  const currentListings = useMemo(() => {
+    return localStorage.getItem('listings') !== null ? JSON.parse(localStorage.getItem('listings')) : [];
+  }, []);
+
+  const sortedList = useMemo(() => {
+    const listClone = [...currentListings];
+    return isNotEmptyArray(listClone) && listClone.sort((a, b) => b.id - a.id);
+  }, [currentListings]);
 
   function addCategory(category) {
     const currentCategory =
@@ -61,61 +68,60 @@ function Admin() {
                     </p>
                   </div>
 
-                  <table className={styles.table}>
-                    <thead>
-                      <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Phone</th>
-                        <th>Email</th>
-                        <th>Website</th>
-                        <th>Categories</th>
-                        <th>Edit/Delete</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {isNotEmptyArray(currentListings) &&
-                        currentListings
-                          .sort((a, b) => b.id - a.id)
-                          .map(listing => (
-                            <tr key={listing.id}>
-                              <td>{listing.name}</td>
-                              <td>{listing.description}</td>
-                              <td>{listing.phone}</td>
-                              <td>{listing.email}</td>
-                              <td>{listing.website}</td>
-                              <td className={styles.categories}>
-                                {listing.categories.map(category => (
-                                  <span key={category.id}>{`${category.name},`} </span>
-                                ))}
-                              </td>
-                              <td>
-                                <Button
-                                  className={styles.icon}
-                                  icon={<EditIcon />}
-                                  onClick={() => {
-                                    setList(listing);
-                                    setModalOpen('edit_business');
-                                  }}
-                                  title="Edit"
-                                  type="submit"
-                                />
+                  <div className={styles.table_wrapper}>
+                    <table className={styles.table}>
+                      <thead>
+                        <tr>
+                          <th>Name</th>
+                          <th>Description</th>
+                          <th>Phone</th>
+                          <th>Email</th>
+                          <th>Website</th>
+                          <th>Categories</th>
+                          <th>Edit/Delete</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {sortedList.map(listing => (
+                          <tr key={listing.id}>
+                            <td>{listing.name}</td>
+                            <td>{listing.description}</td>
+                            <td>{listing.phone}</td>
+                            <td>{listing.email}</td>
+                            <td>{listing.website}</td>
+                            <td className={styles.categories}>
+                              {listing.categories.map(category => (
+                                <span key={category.id}>{`${category.name},`} </span>
+                              ))}
+                            </td>
+                            <td className={styles.action_btn}>
+                              <Button
+                                className={styles.icon}
+                                icon={<EditIcon />}
+                                onClick={() => {
+                                  setList(listing);
+                                  setModalOpen('edit_business');
+                                }}
+                                title="Edit"
+                                type="submit"
+                              />
 
-                                <Button
-                                  className={styles.icon}
-                                  icon={<DeleteIcon />}
-                                  onClick={() => {
-                                    setList(listing);
-                                    setModalOpen('confirm');
-                                  }}
-                                  title="Delete"
-                                  type="submit"
-                                />
-                              </td>
-                            </tr>
-                          ))}
-                    </tbody>
-                  </table>
+                              <Button
+                                className={styles.icon}
+                                icon={<DeleteIcon />}
+                                onClick={() => {
+                                  setList(listing);
+                                  setModalOpen('confirm');
+                                }}
+                                title="Delete"
+                                type="submit"
+                              />
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
                 </>
               )}
             </div>
