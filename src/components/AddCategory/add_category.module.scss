@@ -16,7 +16,11 @@
     background-color: var(--color_white);
     border-radius: to-rem(5);
     margin: 15% auto;
-    width: to-rem(500);
+    width: 100%;
+
+    @media (min-width: 768px) {
+      width: to-rem(500);
+    }
   }
 
   &_title {

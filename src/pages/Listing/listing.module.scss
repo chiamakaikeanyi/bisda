@@ -1,8 +1,10 @@
 @import '../../styles/shared.scss';
 
 .cta_wrapper {
-  @include flex;
-  justify-content: space-between;
+  @media (min-width: 768px) {
+    @include flex;
+    justify-content: space-between;
+  }
 }
 
 .page_title {
@@ -11,7 +13,9 @@
 }
 
 .search {
-  width: 50%;
+  @media (min-width: 768px) {
+    width: 50%;
+  }
 }
 
 .count {
@@ -38,6 +42,7 @@
     display: grid;
     gap: to-rem(15);
     grid-template-columns: repeat(2, 1fr);
+    overflow: auto;
   }
 
   &_item {

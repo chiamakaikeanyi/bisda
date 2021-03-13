@@ -64,6 +64,10 @@
   border-collapse: collapse;
   position: relative;
   width: 100%;
+
+  &_wrapper {
+    overflow: auto;
+  }
 }
 
 thead {
@@ -116,4 +120,9 @@ td:last-of-type {
     background-color: var(--color_grayVar8);
     border-radius: 50%;
   }
+}
+
+.action_btn {
+  @include flex;
+  justify-content: center;
 }
