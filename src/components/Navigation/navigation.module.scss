@@ -7,7 +7,13 @@
   }
 
   &_item {
-    margin-left: to-rem(50);
+    font-size: to-rem(13);
+    margin-left: to-rem(15);
+
+    @media (min-width: 768px) {
+      font-size: to-rem(16);
+      margin-left: to-rem(50);
+    }
 
     :hover {
       color: darken($color: #0066b8, $amount: 5%);
@@ -21,10 +27,17 @@
   border-radius: to-rem(15);
   color: var(--color_primary);
   cursor: pointer;
-  margin-left: to-rem(50);
-  padding: to-rem(5 15);
+  font-size: to-rem(13);
+  margin-left: to-rem(15);
+  padding: to-rem(5);
 
   &:hover {
     box-shadow: to-rem(0 2 8 3) var(--color_grayVarFive);
+  }
+
+  @media (min-width: 768px) {
+    font-size: to-rem(16);
+    margin-left: to-rem(50);
+    padding: to-rem(5 15);
   }
 }

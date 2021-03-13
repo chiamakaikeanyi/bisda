@@ -1,8 +1,10 @@
 @import '../../styles/shared.scss';
 
 .home_wrapper {
-  @include flex;
-  justify-content: space-between;
+  @media (min-width: 768px) {
+    @include flex;
+    justify-content: space-between;
+  }
 }
 
 .info {
@@ -20,22 +22,34 @@
 
   &_heading {
     color: var(--color_gray);
-    font-size: to-rem(35);
+    font-size: to-rem(30);
     font-weight: 400;
     margin-top: to-rem(32);
     max-width: 80%;
+
+    @media (min-width: 768px) {
+      font-size: to-rem(35);
+    }
   }
 
   &_description {
     color: var(--color_grayVarTwo);
-    font-size: to-rem(16);
+    font-size: to-rem(14);
     font-weight: 400;
     margin: to-rem(10 0 32);
+
+    @media (min-width: 768px) {
+      font-size: to-rem(16);
+    }
   }
 }
 
 .business_image {
-  width: 50%;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    width: 50%;
+  }
 }
 
 .cta {
